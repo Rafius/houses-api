@@ -15,7 +15,7 @@ app.listen(80, function () {
 const spreadsheetId = "19UD2hi6sYo8E8U8Xmp5fqqbm1ZdYLxHKWkPV6eWQK0M";
 
 const auth = new google.auth.GoogleAuth({
-  keyFile: path.resolve("./api/credentials.json"),
+  keyFile: path.resolve("./credentials.json"),
   scopes: "https://www.googleapis.com/auth/spreadsheets"
 });
 
@@ -32,7 +32,7 @@ app.get("/getHouses", jsonParser, async (_, res) => {
   const rows = await googleSheets.spreadsheets.values.batchGet({
     auth,
     spreadsheetId,
-    ranges: "Hoja 1"
+    ranges: "Buy"
   });
 
   const { values } = rows?.data?.valueRanges[0] ?? {};
