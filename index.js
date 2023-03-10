@@ -32,11 +32,12 @@ app.get("/getHouses", jsonParser, async (_, res) => {
   const rows = await googleSheets.spreadsheets.values.batchGet({
     auth,
     spreadsheetId,
-    ranges: "Buy"
+    ranges: "Rent"
   });
 
   const { values } = rows?.data?.valueRanges[0] ?? {};
 
+  debugger;
   values.shift();
 
   const houses = values.map(
@@ -64,7 +65,7 @@ app.get("/getHouses", jsonParser, async (_, res) => {
       terrace,
       swimmingPool,
       swimmingPoolType,
-      photo
+      image
     ]) => ({
       city,
       link,
@@ -89,7 +90,7 @@ app.get("/getHouses", jsonParser, async (_, res) => {
       terrace,
       swimmingPool,
       swimmingPoolType,
-      photo
+      image
     })
   );
 
