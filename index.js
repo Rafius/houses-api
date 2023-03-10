@@ -84,7 +84,8 @@ app.get("/getHouses", jsonParser, async (_, res) => {
 
   res.send({
     status: "Success",
-    houses: filteredHouses,
+    houses,
+    // houses: filteredHouses,
     count: filteredHouses.length
   });
 });
