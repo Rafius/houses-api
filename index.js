@@ -37,16 +37,59 @@ app.get("/getHouses", jsonParser, async (_, res) => {
 
   const { values } = rows?.data?.valueRanges[0] ?? {};
 
+  values.shift();
+
   const houses = values.map(
-    ([price, title, location, feature, image, link, date, type]) => ({
+    ([
+      city,
+      link,
       price,
       title,
       location,
-      feature,
-      image,
+      builtArea,
+      usableArea,
+      bedrooms,
+      bathrooms,
+      floor,
+      age,
+      condition,
+      garage,
+      orientation,
+      energyCertificate,
+      communityExpenses,
+      airConditioning,
+      elevator,
+      houseHeating,
+      houseHeatingType,
+      terrace,
+      swimmingPool,
+      swimmingPoolType,
+      photo
+    ]) => ({
+      city,
       link,
-      date,
-      type
+      price,
+      title,
+      location,
+      builtArea,
+      usableArea,
+      bedrooms,
+      bathrooms,
+      floor,
+      age,
+      condition,
+      garage,
+      orientation,
+      energyCertificate,
+      communityExpenses,
+      airConditioning,
+      elevator,
+      houseHeating,
+      houseHeatingType,
+      terrace,
+      swimmingPool,
+      swimmingPoolType,
+      photo
     })
   );
 
