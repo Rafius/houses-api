@@ -122,14 +122,13 @@ app.get("/getHouses", jsonParser, async (_, res) => {
     };
   });
 
-  filteredHouses = filteredHouses
-    .filter(({ priceChanges }) => priceChanges > 0)
-    .sort((a, b) => b.priceChanges - a.priceChanges);
+  // filteredHouses = filteredHouses
+  //   .filter(({ priceChanges }) => priceChanges > 0)
+  //   .sort((a, b) => b.priceChanges - a.priceChanges);
 
   res.send({
     status: "Success",
-    houses,
-    // houses: filteredHouses,
+    houses: filteredHouses,
     count: filteredHouses.length
   });
 });
